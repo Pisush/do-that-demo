@@ -127,3 +127,163 @@ screenshare.style.height = '75%';
       </script>
   </head>
 </html>
+<html>
+    <head>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            var video = document.createElement('video');
+video.setAttribute('autoplay', 'autoplay');
+video.setAttribute('playsinline', 'playsinline');
+video.setAttribute('muted', 'muted');
+video.setAttribute('loop', 'loop');
+video.setAttribute('controls', 'controls');
+video.setAttribute('width', '100%');
+video.setAttribute('height', '100%');
+document.body.appendChild(video);
+
+var canvas = document.createElement('canvas');
+canvas.setAttribute('width', '100%');
+canvas.setAttribute('height', '100%');
+document.body.appendChild(canvas);
+
+var ctx = canvas.getContext('2d');
+
+var videoStream = null;
+
+navigator.mediaDevices.getUserMedia({ video: true })
+  .then(function (stream) {
+    videoStream = stream;
+    video.srcObject = stream;
+  })
+  .catch(function (err) {
+    console.log(err);
+  });
+
+
+
+            var ticker = document.createElement('div');
+ticker.innerHTML = 'OpenAI experiments with Natalie Pistunovich';
+ticker.style.position = 'absolute';
+ticker.style.bottom = '0';
+ticker.style.left = '0';
+ticker.style.right = '0';
+ticker.style.textAlign = 'center';
+ticker.style.fontSize = '2em';
+ticker.style.color = 'white';
+ticker.style.backgroundColor = 'black';
+ticker.style.zIndex = '1';
+document.body.appendChild(ticker);
+
+
+
+            ticker.style.backgroundColor = 'grey';
+
+
+
+            video.style.width = '80%';
+video.style.height = '80%';
+
+
+
+            ticker.style.bottom = '20%';
+
+
+
+            var speechRecognition = new webkitSpeechRecognition();
+speechRecognition.continuous = true;
+speechRecognition.interimResults = true;
+speechRecognition.lang = 'en-US';
+
+var speechRecognitionResult = document.createElement('div');
+speechRecognitionResult.style.position = 'absolute';
+speechRecognitionResult.style.bottom = '0';
+speechRecognitionResult.style.left = '0';
+speechRecognitionResult.style.right = '0';
+speechRecognitionResult.style.textAlign = 'center';
+speechRecognitionResult.style.fontSize = '2em';
+speechRecognitionResult.style.color = 'white';
+speechRecognitionResult.style.backgroundColor = 'black';
+speechRecognitionResult.style.zIndex = '1';
+document.body.appendChild(speechRecognitionResult);
+
+speechRecognition.onresult = function (event) {
+  var transcript = '';
+  for (var i = event.resultIndex; i < event.results.length; i++) {
+    transcript += event.results[i][0].transcript;
+  }
+  speechRecognitionResult.innerHTML = transcript;
+};
+
+speechRecognition.onend = function () {
+  speechRecognitionResult.innerHTML = 'Speech recognition ended.';
+};
+
+speechRecognition.start();
+
+
+
+            speechRecognitionResult.style.color = 'black';
+speechRecognitionResult.style.backgroundColor = 'white';
+
+
+
+            var cat = document.createElement('img');
+cat.src = 'https://i.imgur.com/QwhZRyL.png';
+cat.style.position = 'absolute';
+cat.style.right = '0';
+cat.style.top = '0';
+cat.style.width = '20%';
+cat.style.height = '20%';
+cat.style.zIndex = '1';
+document.body.appendChild(cat);
+
+
+
+            video.style.width = '50%';
+video.style.height = '50%';
+
+
+
+            var screenshare = document.createElement('video');
+screenshare.setAttribute('autoplay', 'autoplay');
+screenshare.setAttribute('playsinline', 'playsinline');
+screenshare.setAttribute('muted', 'muted');
+screenshare.setAttribute('loop', 'loop');
+screenshare.setAttribute('controls', 'controls');
+screenshare.setAttribute('width', '100%');
+screenshare.setAttribute('height', '100%');
+document.body.appendChild(screenshare);
+
+var screenshareStream = null;
+
+navigator.mediaDevices.getDisplayMedia({ video: true })
+  .then(function (stream) {
+    screenshareStream = stream;
+    screenshare.srcObject = stream;
+  })
+  .catch(function (err) {
+    console.log(err);
+  });
+
+
+
+            screenshare.style.position = 'absolute';
+screenshare.style.right = '0';
+screenshare.style.top = '0';
+
+
+
+            screenshare.style.width = '75%';
+screenshare.style.height = '75%';
+
+
+
+            video.style.width = '40%';
+video.style.height = '40%';
+
+
+});
+        </script>
+    </head>
+</html>
