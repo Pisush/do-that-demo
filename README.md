@@ -29,7 +29,8 @@ What can you personalize:
 ![Screenshot 2021-08-08 at 22 39 55](https://user-images.githubusercontent.com/7592392/128645077-b599aadb-8053-4de5-8b85-d3e6005118fb.png)
 
 ### Personalized do-that-demo:
-![Screenshot 2021-08-08 at 22 38 09](https://user-images.githubusercontent.com/7592392/128645081-980999d3-7763-4fcf-84f4-98197611b58d.png)
+![Screenshot 2021-08-08 at 22 45 31](https://user-images.githubusercontent.com/7592392/128645238-7df4f5b0-4eff-4dd6-8fd7-8a8931ff2d13.png)
+
 
 ### [The Stenography Discord server](https://discord.com/invite/FgMxkfVwxk):
 ![Screenshot 2021-08-08 at 22 38 43](https://user-images.githubusercontent.com/7592392/128645080-e3d2fadb-9a69-43c1-9d05-087a32349b77.png)
